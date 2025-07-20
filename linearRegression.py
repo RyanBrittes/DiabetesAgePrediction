@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class LinearRegression():
     def __init__(self):
-        self.read = pd.read_csv('/home/ryan/Documents/Python/AI/AI_Training_Models/LinearRegression/diabetes.csv')
+        self.read = pd.read_csv('/home/ryan/Documents/Python/AI/DiabetesAgePrediction/files/diabetes.csv')
         self.data = self.read[self.read['Outcome'] == 1]
         self.yTrue = self.data['Age'].values
         self.xTrue = self.data[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].values
@@ -48,7 +48,7 @@ class LinearRegression():
         yTest = xTest @ self.weight + self.bias
         print(f"\n\nTeste com valores reais:\nPregnancies: {xTest[0]}\nGlucose: {xTest[1]}\nBloodPressure: {xTest[2]}\nSkinThickness: {xTest[3]}\nInsulin: {xTest[4]}\nBMI: {xTest[5]}\nIdade de previsão para aderir a doença: {yTest}")
 
-    def plotData(self):
+    def plotLoss(self):
         self.trainModel()
         plt.plot(self.losses)
         plt.xlabel("Época")
@@ -56,7 +56,15 @@ class LinearRegression():
         plt.title("Convergência da Regressão Linear Múltipla")
         plt.grid()
         plt.show()
+    
+    def plotDataRelation(self):
+        index = 0
 
-A = LinearRegression()
-
-A.trainModel()
+        for i in range(len(self.xTrue[0])):
+            plt.plot(self.xTrue[:,index], self.yTrue, '.', )
+            plt.grid()
+            plt.ylabel("Age")
+            plt.xlabel(f"{self.data.columns[index]}")
+            plt.title(f"Relation between Age and {self.data.columns[index]}")
+            plt.show()
+            index += 1
