@@ -24,3 +24,4 @@ Caso você já tenha algum conhecimento prévio do que se trata o conceito base,
 
 ### ***Regressão Linear:***
 > É uma técnica estatística utilizada para encontrar a relação entre variáveis, em machine learning é possível encontrar a relação entre atributos e rótulos de um conjunto de dados.
+

@@ -1,17 +1,21 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class LinearRegression():
     def __init__(self):
-        self.read = pd.read_csv('/home/ryan/Documents/Python/AI/DiabetesAgePrediction/files/diabetes.csv')
+        self.read = pd.read_csv(os.getenv("DATAPATH"))
         self.data = self.read[self.read['Outcome'] == 1]
         self.yTrue = self.data['Age'].values
         self.xTrue = self.data[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].values
         self.weight = np.zeros(self.xTrue.shape[1])
         self.bias = 0
         self.lr = 0.00001
-        self.epochs = 10000000
+        self.epochs = 100000
         self.batchSize = 100
         self.n = len(self.yTrue)
         self.losses = []
@@ -68,7 +72,7 @@ class LinearRegression():
             epoch_pred = self.xTrue @ self.weight + self.bias
             lossValue = self.funcMSE(self.yTrue, epoch_pred)
             self.losses.append(lossValue)
-            print(f"Loss --> {lossValue:4f}")
+            #print(f"Loss --> {lossValue:4f}")
             
         trainedParams = [self.weight, self.bias, self.losses, xTrain, xTest, yTrain, yTest]
 
