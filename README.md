@@ -108,26 +108,90 @@ Estando na pasta **test**:
 python test.py
 ```
 ## Análise preliminar sobre a fonte de dados utilizados para uma melhor condução do treinamento do modelo:
-(Gráficos gerados pelo matplotlib)
+Antes de começar a trabalhar com os dados, foi feita uma análise para saber como os biomarcadores e o fator alvo **Age** se relacionam:
+
+![Img](graphics/AgePregnance.png)
+
+_Relação entre Age e Pregnance_
+
+![Img](graphics/AgeGlucose.png)
+
+_Relação entre Age e Glucose_
+
+![Img](graphics/AgeBloodPressure.png)
+
+_Relação entre Age e Blood Pressure_
+
+![Img](graphics/AgeSkinThickness.png)
+
+_Relação entre Age e Skin Thickness_
+
+![Img](graphics/AgeInsulin.png)
+
+_Relação entre Age e Insulin_
+
+![Img](graphics/AgeBMI.png)
+
+_Relação entre Age e BMI_
+
+
+É possível observar que os dados estão com grau de desagrupamento elevado, portando no algoritmo foi utilizado a função de perda quadrática que tenta prever resultados fora da curva.
 
 ## Resultados encontrados:
 Realizando as devidas ponderações nos parâmetros para encontrar a convergência do algoritmo, foram encontraos os seguintes valores:
 - Taxa de aprendizado (self.lr): 0.00001
 - Eras (self.epochs): 100000
-- Tamanho do lote (self.batchSize): 100
+- Tamanho do lote (self.batchSize): 30
 - Taxa de amostras teste (self.rateTest): 0.1
 - Taxa de amostras de treinamento: 0.9
-- Perca final encontrada (lossValue): ***
-- Viés encontrado (self.bias): ***
-- Pesos encontrados (self.weight): ***
-  - Peso 'Pregnancies':
-  - Peso 'Glucose':
-  - Peso 'BloodPressure':
-  - Peso 'SkinThickness':
-  - Peso 'Insulin':
-  - Peso 'BMI':
+- Perca final encontrada (lossValue): 93.190424
+- Viés encontrado (self.bias): 6.74128
+- Pesos encontrados (self.weight)
+  - Peso 'Pregnancies': 1.38677763
+  - Peso 'Glucose': 0.07766161
+  - Peso 'BloodPressure': 0.18223321
+  - Peso 'SkinThickness': -0.09267285
+  - Peso 'Insulin': 0.00763439
+  - Peso 'BMI': 0.02430139
  
-(Gráfico mostrando a taxa de perda durante o passar do tempo de treinamento)
+Gráfico que representa a perca ao longo do treinamento do algoritmo:
+
+![Img](graphics/MSE_Epochs.png)
+
+
+### Amostra de resultados de testes realizados com a predição do modelo em comparativo com o valor real do conjunto de dados:
+
+**Amostra 01:**
+- Pregnancies: 7.0
+- Glucose: 161.0
+- BloodPressure: 86.0
+- SkinThickness: 0.0
+- Insulin: 0.0
+- BMI: 30.4
+- Previsão: 45.363057985329284 | Real: 47
+
+**Amostra 02:**
+- Pregnancies: 2.0
+- Glucose: 90.0
+- BloodPressure: 68.0
+- SkinThickness: 42.0
+- Insulin: 0.0
+- BMI: 38.2
+- Previsão: 25.932288649696076 | Real: 27
+
+**Amostra 03:**
+- Pregnancies: 4.0
+- Glucose: 125.0
+- BloodPressure: 80.0
+- SkinThickness: 0.0
+- Insulin: 0.0
+- BMI: 32.3
+- Previsão: 37.35968045679937 | Real: 27
+
+## Conclusão
+Com o resultado encontrado do algoritmo foi possível identificar que com o conjunto de dados utilizado, existe uma certa correlação que pode nos dar um indicativo previsão baseado em biomarcadores feitos por uma análise clínica com que idade uma mulher acima dos 21 anos, proveniente da India, pode desenvolver diabetes. Porém, é importante observar que a perca resultante final foi elevada, e em um cenário médico onde números como estes são de extrema importância pois quanto antes um problema for identificado e resolvido melhor, o contrário resulta em cenários catastróficos, então há de se melhorar em muitos pontos, seja com dados mais robustos ou com a utilização de outros algoritmos.
+
+> Este algoritmo tem apenas o intuito de analisar um conjunto de dados e mostrar os resultados encontrados ao treinar um modelo com Regressão Linear. Por tanto não é recomendado utilizar este algoritmo como base de um diagnóstico, procure um especialista na área antes de tirar qualquer conclusão.
 
 ## Documentação adicional:
 Caso queira encontrar uma documentação adicional das tecnologias utilizadas, seguem os arquivos:

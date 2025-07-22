@@ -7,4 +7,4 @@ from linearRegression import LinearRegression
 
 A = LinearRegression()
 
-A.plotDataRelation()
+A.plotLoss()

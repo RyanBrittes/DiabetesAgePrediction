@@ -16,7 +16,7 @@ class LinearRegression():
         self.bias = 0
         self.lr = 0.00001
         self.epochs = 100000
-        self.batchSize = 100
+        self.batchSize = 30
         self.n = len(self.yTrue)
         self.losses = []
         self.rateTest = 0.1
@@ -72,7 +72,7 @@ class LinearRegression():
             epoch_pred = self.xTrue @ self.weight + self.bias
             lossValue = self.funcMSE(self.yTrue, epoch_pred)
             self.losses.append(lossValue)
-            #print(f"Loss --> {lossValue:4f}")
+            print(f"Loss --> {lossValue:4f}")
             
         trainedParams = [self.weight, self.bias, self.losses, xTrain, xTest, yTrain, yTest]
 
@@ -99,8 +99,8 @@ class LinearRegression():
     def plotLoss(self):
         self.showResults()
         plt.plot(self.losses)
-        plt.xlabel("Época")
-        plt.ylabel("Erro (MSE)")
+        plt.xlabel("Epochs")
+        plt.ylabel("MSE")
         plt.title("Perca por período de treinamento")
         plt.grid()
         plt.show()
