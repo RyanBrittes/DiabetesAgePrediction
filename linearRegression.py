@@ -1,23 +1,18 @@
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from loadData import LoadData
 
 class LinearRegression():
     def __init__(self):
-        self.read = pd.read_csv(os.getenv("DATAPATH"))
-        self.data = self.read[self.read['Outcome'] == 1]
-        self.yTrue = self.data['Age'].values
-        self.xTrue = self.data[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].values
+        self.data = LoadData()
+        self.yTrue = self.data.get_Y_scoreZ()
+        self.xTrue = self.data.get_X_scoreZ()
         self.weight = np.zeros(self.xTrue.shape[1])
+        self.n = len(self.yTrue)
         self.bias = 0
         self.lr = 0.00001
         self.epochs = 100000
         self.batchSize = 30
-        self.n = len(self.yTrue)
         self.losses = []
         self.rateTest = 0.1
 
@@ -59,11 +54,11 @@ class LinearRegression():
             for i in range(0, self.n, self.batchSize):
                 xBatch = xTrain[i:i+self.batchSize]
                 yBatch = yTrain[i:i+self.batchSize]
-
-                yPred = xBatch @ self.weight + self.bias
+                
+                yPred = np.array(xBatch @ self.weight + self.bias).reshape(-1,1)
                 error = yPred - yBatch
-
-                dw = (2/self.batchSize) * (xBatch.T @ error)
+                print(error)
+                dw = (2/self.batchSize) * (xBatch @ error)
                 db = (2/self.batchSize) * np.sum(error)
 
                 self.weight -= dw * self.lr

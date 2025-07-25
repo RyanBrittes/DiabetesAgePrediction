@@ -7,4 +7,8 @@ from linearRegression import LinearRegression
 
 A = LinearRegression()
 
-A.plotLoss()
+listValue = A.shuffleData()
+
+separe = A.separeTrainTest(listValue[0], listValue[1])
+
+print(A.trainModel())
