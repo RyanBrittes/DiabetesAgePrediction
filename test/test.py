@@ -1,14 +1,11 @@
 import sys
 import os
-
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
+from plotGraphic import PlotGraphic
 from linearRegression import LinearRegression
 
-A = LinearRegression()
+A = PlotGraphic()
+B = LinearRegression()
 
-listValue = A.shuffleData()
-
-separe = A.separeTrainTest(listValue[0], listValue[1])
-
-print(A.trainModel())
+A.plot_loss()
+#B.showResults() --> another example

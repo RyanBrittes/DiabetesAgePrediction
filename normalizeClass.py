@@ -34,3 +34,14 @@ class NormalizeClass():
         for i in range(len(rawValue)):
             listValue.append(np.log(rawValue[i] + const_not_zero))
         return np.vstack(listValue)
+    
+    def logDenormalizeValue(self, rawValue):
+        return np.exp(rawValue)
+    
+    def logDenormalizeList(self, rawValue):
+        listValue = []
+        for i in range(len(rawValue)):
+            listValue.append(np.exp(rawValue[i]))
+
+        return listValue
+    
