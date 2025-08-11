@@ -9,7 +9,7 @@ class PlotGraphic():
         self.data = LoadData()
     
     def plot_loss(self):
-        values = self.model.trainModel()
+        values = self.model.train_model()
         plt.plot(values[2])
         plt.xlabel("Epochs")
         plt.ylabel("MSE")
@@ -20,11 +20,11 @@ class PlotGraphic():
     def plot_relations(self):
         index = 0
 
-        for i in range(len(self.data.xTrue[0])):
-            plt.plot(self.data.xTrue[:,index], self.data.yTrue, '.', )
+        for i in range(len(self.data.__x_true[0])):
+            plt.plot(self.data.__x_true[:,index], self.data.__y_true, '.', )
             plt.grid()
             plt.ylabel("Age")
-            plt.xlabel(f"{self.data.data.columns[index]}")
-            plt.title(f"Relation between Age and {self.data.data.columns[index]}")
+            plt.xlabel(f"{self.data.__data.columns[index]}")
+            plt.title(f"Relation between Age and {self.data.__data.columns[index]}")
             plt.show()
             index += 1
