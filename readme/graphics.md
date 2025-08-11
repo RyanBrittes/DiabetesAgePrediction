@@ -1,27 +1,27 @@
 ## Análise preliminar sobre a fonte de dados utilizados para uma melhor condução do treinamento do modelo:
 Antes de começar a trabalhar com os dados, foi feita uma análise para saber como os biomarcadores e o fator alvo **Age** se relacionam:
 
-![Img](graphics/AgePregnance.png)
+![Img](../graphics/AgePregnance.png)
 
 _Relação entre Age e Pregnance_
 
-![Img](graphics/AgeGlucose.png)
+![Img](../graphics/AgeGlucose.png)
 
 _Relação entre Age e Glucose_
 
-![Img](graphics/AgeBloodPressure.png)
+![Img](../graphics/AgeBloodPressure.png)
 
 _Relação entre Age e Blood Pressure_
 
-![Img](graphics/AgeSkinThickness.png)
+![Img](../graphics/AgeSkinThickness.png)
 
 _Relação entre Age e Skin Thickness_
 
-![Img](graphics/AgeInsulin.png)
+![Img](../graphics/AgeInsulin.png)
 
 _Relação entre Age e Insulin_
 
-![Img](graphics/AgeBMI.png)
+![Img](../graphics/AgeBMI.png)
 
 _Relação entre Age e BMI_
 

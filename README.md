@@ -86,21 +86,21 @@ python test.py
 ```
 
 ## Resultados encontrados:
-Realizando as devidas ponderações nos parâmetros para encontrar a convergência do algoritmo, foram encontraos os seguintes valores:
-- Taxa de aprendizado (self.lr): 0.00001
-- Eras (self.epochs): 100000
+Realizando as devidas ponderações nos parâmetros para encontrar a convergência do algoritmo, foram encontrados os seguintes valores:
+- Taxa de aprendizado (self.lr): 0.0001
+- Eras (self.epochs): 8000
 - Tamanho do lote (self.batchSize): 30
 - Taxa de amostras teste (self.rateTest): 0.1
 - Taxa de amostras de treinamento: 0.9
-- Perca final encontrada (lossValue): 93.190424
-- Viés encontrado (self.bias): 6.74128
+- Perca final encontrada (lossValue): 1.124837
+- Viés encontrado (self.bias): 3.3708
 - Pesos encontrados (self.weight)
-  - Peso 'Pregnancies': 1.38677763
-  - Peso 'Glucose': 0.07766161
-  - Peso 'BloodPressure': 0.18223321
-  - Peso 'SkinThickness': -0.09267285
-  - Peso 'Insulin': 0.00763439
-  - Peso 'BMI': 0.02430139
+  - Peso 'Pregnancies': 0.00681145
+  - Peso 'Glucose': 0.00624196
+  - Peso 'BloodPressure': 0.00426377
+  - Peso 'SkinThickness': -0.00359601
+  - Peso 'Insulin': -0.0013916
+  - Peso 'BMI': 0.00295275
  
 Gráfico que representa a perca ao longo do treinamento do algoritmo:
 

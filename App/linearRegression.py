@@ -14,7 +14,7 @@ class LinearRegression():
         self.y_test = self.shuffled_data[3]
         self.weight = np.zeros(self.x_train.shape[1])
         self.bias = 0
-        self.lr = 0.003
+        self.lr = 0.0001
         self.epochs = 8000
         self.batch_size = 30
         self.train_losses = []
@@ -46,7 +46,7 @@ class LinearRegression():
             self.train_losses.append(train_loss)
             self.test_losses.append(test_loss)
 
-            print(f"Train Loss --> {train_loss:4f}\nTest Loss --> {test_loss:4f}")
+            #print(f"Train Loss --> {train_loss:4f}\nTest Loss --> {test_loss:4f}")
             
         return [self.weight, self.bias, self.train_losses, self.x_train, self.x_test, self.y_train, self.y_test]
 
