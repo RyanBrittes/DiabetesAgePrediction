@@ -1,6 +1,6 @@
 import numpy as np
 
-class NormalizeClass():
+class NormalizeModel():
 
     def calc_mean(self, raw_value):
         sum_value = 0

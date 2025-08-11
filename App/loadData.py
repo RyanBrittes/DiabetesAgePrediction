@@ -1,15 +1,16 @@
 import pandas as pd
 import os
-from dotenv import load_dotenv
-from normalizeClass import NormalizeClass
+#from dotenv import load_dotenv
+from App.normalizeModel import NormalizeClass
 import numpy as np
 
-load_dotenv()
+#load_dotenv()
 
 class LoadData():
     def __init__(self):
         self.norm = NormalizeClass()
-        self.__data = pd.read_csv(os.getenv("DATAPATH"))
+        #self.__data = pd.read_csv(os.getenv("DATAPATH"))
+        self.__data = pd.read_csv('/workspaces/DiabetesAgePrediction/files/diabetes.csv')
         self.__y_true = self.__data['Age'].values
         self.__x_true = self.__data[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].values
     
