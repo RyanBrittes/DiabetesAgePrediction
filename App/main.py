@@ -1,8 +1,11 @@
 from linearRegression import LinearRegression
 from normalizeModel import NormalizeModel
+import math
 
 linear_regression = LinearRegression()
 normalize = NormalizeModel()
+
+print("Processando informações...")
 
 results = linear_regression.train_model()
 x_test = results[4]
@@ -14,7 +17,7 @@ final_loss = results[2]
 for i in range(len(x_test)):
     y_predict = normalize.calc_log_denormalize(x_test[i] @ trained_weight + trained_bias)
     print("--------------------------------------")
-    print(f"Pregnancies: {normalize.calc_log_denormalize(x_test[i][0])}\nGlucose: {normalize.calc_log_denormalize(x_test[i][1])}\nBloodPressure: {normalize.calc_log_denormalize(x_test[i][2])}\nSkinThickness: {normalize.calc_log_denormalize(x_test[i][3])}\nInsulin: {normalize.calc_log_denormalize(x_test[i][4])}\nBMI: {normalize.calc_log_denormalize(x_test[i][5])}")
+    print(f"Pregnancies: {math.ceil(normalize.calc_log_denormalize(x_test[i][0]))}\nGlucose: {math.ceil(normalize.calc_log_denormalize(x_test[i][1]))}\nBloodPressure: {math.ceil(normalize.calc_log_denormalize(x_test[i][2]))}\nSkinThickness: {math.ceil(normalize.calc_log_denormalize(x_test[i][3]))}\nInsulin: {math.ceil(normalize.calc_log_denormalize(x_test[i][4]))}\nBMI: {math.ceil(normalize.calc_log_denormalize(x_test[i][5]))}")
     print(f"Previsão: {y_predict} | Real: {y_test[i]}")
 
 print("--------------------------------------")
