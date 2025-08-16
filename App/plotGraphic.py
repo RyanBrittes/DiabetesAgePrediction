@@ -2,15 +2,17 @@ from linearRegression import LinearRegression
 import matplotlib.pyplot as plt
 plt.switch_backend('TkAgg')
 from loadData import LoadData
+from normalizeModel import NormalizeModel
 
 class PlotGraphic():
     def __init__(self):
         self.model = LinearRegression()
         self.data = LoadData()
+        self.normalize = NormalizeModel()
     
     def plot_loss(self):
         values = self.model.train_model()
-        plt.plot(values[2])
+        plt.plot(self.normalize.calc_log_denormalize_list(values[2]))
         plt.xlabel("Epochs")
         plt.ylabel("MSE")
         plt.title("Perca por período de treinamento")
@@ -28,3 +30,7 @@ class PlotGraphic():
             plt.title(f"Relation between Age and {self.data.__data.columns[index]}")
             plt.show()
             index += 1
+
+A = PlotGraphic()
+
+A.plot_loss()

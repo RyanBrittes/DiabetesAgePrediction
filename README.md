@@ -104,7 +104,7 @@ Realizando as devidas ponderações nos parâmetros para encontrar a convergênc
  
 Gráfico que representa a perca ao longo do treinamento do algoritmo:
 
-![Img](graphics/MSE_Epochs.png)
+![Img](graphics/LossPerEpochs.png)
 
 ## Inferência com dados de teste feitos pelo modelo
 - Clique no link abaixo para analisar o resultado de três amostras com seus respectivos resultados:

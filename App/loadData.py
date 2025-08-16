@@ -10,7 +10,7 @@ class LoadData():
     def __init__(self):
         self.norm = NormalizeModel()
         #self.__data = pd.read_csv(os.getenv("DATAPATH"))
-        self.__data = pd.read_csv('/workspaces/DiabetesAgePrediction/files/diabetes.csv')
+        self.__data = pd.read_csv('/home/ryan/Documents/Python/AI/DiabetesAgePrediction/files/diabetes.csv')
         self.__y_true = self.__data['Age'].values
         self.__x_true = self.__data[['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 'Insulin', 'BMI']].values
     
