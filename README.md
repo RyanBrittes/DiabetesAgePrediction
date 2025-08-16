@@ -27,7 +27,9 @@
 ## :pencil: Propósito:
 Com este repositório você poderá entender um pouco melhor como a técnica de Regressão Linear utilizada em Machine Learning funciona e pode ser aplicada aos problemas reais do dia a dia. Como exemplo foi utilizada uma base de dados pré-existente e real.
 
-O intuito da análise realizada foi tentar prever com que idade uma pessoa pode desenvolver diabetes baseada em seus biomarcadores, este estudo foi dirigido na India com mulheres acima de 21 anos.A fim de credibilizar os pesquisadores deixarei ao final da explicação o link para acesso ao arquivo original.
+Para melhorar a relação entre os dados, foram utilizadas técnicas de normalização, neste algoritmo a escolhida foi normalização por dimensionamento logarítmico. No treinamento a técnica adotada foi a de gradiente descendente estocástico com minilote, que mostrou maior eficiência no treinamento, otimizando a velocidade com que o algoritmo atingiu a convergência.
+
+O intuito da análise realizada foi tentar prever com que idade uma pessoa pode desenvolver diabetes baseada em seus biomarcadores, este estudo foi dirigido na India com mulheres acima de 21 anos. A fim de credibilizar os pesquisadores deixarei ao final da explicação o link para acesso ao arquivo original.
 
 Caso você já tenha algum conhecimento prévio do que se trata o conceito base, sugiro que pule para a etapa de explicação do código e dos dados encontrados.
 
@@ -48,7 +50,6 @@ DiabetesAgePrediction
   │    └─diabetes.csv
   └──test
   │   └─test.py
-  └──.env
   └──requirements.txt
 ```
 ### [![App](https://img.shields.io/badge/-App-yellow)](./App)
@@ -62,8 +63,6 @@ DiabetesAgePrediction
 - [![diabetes.csv](https://img.shields.io/badge/-diabetes.csv-darkgreen)](./files/diabetes.csv): Arquivo utilizado como fonte de dados de treinamento do modelo.
 ### [![test](https://img.shields.io/badge/-test-yellow)](./test)
 - test.py: Algoritmo que irá rodar o código para que sua saída seja analisada. Por padrão, o método irá gerar um gráfico de Loss vs Epochs, onde será realizada uma análise de como a perca decai ou aumenta com o tempo de treinamento com as amostras.
-### ![.env](https://img.shields.io/badge/-.env-yellow)
-- Arquivo com a informação do caminho do arquivo com a fonte de dados.
 ### [![requirements.txt](https://img.shields.io/badge/-requirements.txt-yellow)](./requirements.txt)
 - Documento com todas as bibliotecas utilizadas no código, para adicioná-las com facilidade dê o comando:
 ```
@@ -111,7 +110,7 @@ Gráfico que representa a perca ao longo do treinamento do algoritmo:
 - [![Amostras](https://img.shields.io/badge/-Amostras-blue)](./readme/sample.md)
 
 ## Conclusão
-Com o resultado encontrado do algoritmo foi possível identificar que com o conjunto de dados utilizado, existe uma certa correlação que pode nos dar um indicativo previsão baseado em biomarcadores feitos por uma análise clínica com que idade uma mulher acima dos 21 anos, proveniente da India, pode desenvolver diabetes. Porém, é importante observar que a perca resultante final foi elevada, e em um cenário médico onde números como estes são de extrema importância pois quanto antes um problema for identificado e resolvido melhor, o contrário resulta em cenários catastróficos, então há de se melhorar em muitos pontos, seja com dados mais robustos ou com a utilização de outros algoritmos.
+Com o resultado encontrado do algoritmo foi possível identificar que com o conjunto de dados utilizado, existe uma certa correlação que pode nos dar um indicativo previsão baseado em biomarcadores feitos por uma análise clínica com que idade uma mulher acima dos 21 anos, proveniente da India, pode desenvolver diabetes. Porém, é importante observar que existem resultados previstos que são muito fora do real, e em um cenário médico onde números como estes são de extrema importância pois quanto antes um problema for identificado e resolvido melhor, o contrário resulta em cenários catastróficos, então há de se melhorar em muitos pontos, seja com dados mais robustos ou com a utilização de outros algoritmos.
 
 > Este algoritmo tem apenas o intuito de analisar um conjunto de dados e mostrar os resultados encontrados ao treinar um modelo com Regressão Linear. Por tanto não é recomendado utilizar este algoritmo como base de um diagnóstico, procure um especialista na área antes de tirar qualquer conclusão.
 

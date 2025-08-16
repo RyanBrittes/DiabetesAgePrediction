@@ -12,7 +12,7 @@ x_test = results[4]
 y_test = normalize.calc_log_denormalize_list(results[6])
 trained_weight = results[0]
 trained_bias = results[1]
-final_loss = results[2]
+final_loss = normalize.calc_log_denormalize_list(results[2])
 
 for i in range(len(x_test)):
     y_predict = normalize.calc_log_denormalize(x_test[i] @ trained_weight + trained_bias)
@@ -21,4 +21,4 @@ for i in range(len(x_test)):
     print(f"Previsão: {y_predict} | Real: {y_test[i]}")
 
 print("--------------------------------------")
-print(f"Pesos encontrados: {trained_weight}\nVies encontrado: {trained_bias}\nPerca final: {normalize.calc_log_denormalize(final_loss[-1]):4f}")
+print(f"Pesos encontrados: {trained_weight}\nVies encontrado: {trained_bias}\nPerca final: {final_loss[-1]:4f}")

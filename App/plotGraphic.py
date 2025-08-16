@@ -11,8 +11,8 @@ class PlotGraphic():
         self.normalize = NormalizeModel()
     
     def plot_loss(self):
-        values = self.model.train_model()
-        plt.plot(self.normalize.calc_log_denormalize_list(values[2]))
+        list_loss = self.model.train_model()
+        plt.plot(self.normalize.calc_log_denormalize_list(list_loss[2]))
         plt.xlabel("Epochs")
         plt.ylabel("MSE")
         plt.title("Perca por período de treinamento")
